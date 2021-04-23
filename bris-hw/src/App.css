@@ -1,18 +1,61 @@
+@font-face {
+  font-family: 'SFDistantGalaxy';
+  src: url('./SFDistantGalaxy.ttf') format('woff2'),
+       url('./SFDistantGalaxy.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body{
+  background-image: url('https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-26.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .container{
-  /* border: 1px solid black;
-  width: 300px;
-  height: 400px; */
+  box-shadow: 0 1px 6px rgb(0 0 0 / 80%), 0 1px 4px rgb(0 0 0 / 80%);
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 300px;
+  min-width: 800px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  margin: 10px;
+  color: #eedd1da9;
 }
 
+
+h1{
+  font-family: 'SFDistantGalaxy';
+  text-shadow: 1px 0 0 #eedd1d, 0 -1px 0 #eedd1d, 0 1px 0 #eedd1d, -1px 0 0 #eedd1d;
+  font-size: 100px;
+}
+
+.ship{
+  height: 60px;
+  font-size: 30px;
+}
+
+.info{
+  height: 50px;
+
+  font-size: 20px;
+}
+
+a{
+  color: #eedd1da9;
+}
+
+.back{
+  font-size: 30px;
+}

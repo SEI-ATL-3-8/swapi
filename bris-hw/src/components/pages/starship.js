@@ -22,15 +22,17 @@ const Starship = (props) => {
     useEffect(handleShip,[])
 
     return (
-      <div className = 'container'>
-        <h1> {shipName} </h1>
-        {shipInfo.map((info, i ) => (
-            <div key = {i}> 
-                <div> {info} </div>
-            </div>
-        ))}
-        <Link to= '/'>Go Back</Link>
-      </div>
+        <div>
+            <h1> {shipName} </h1>
+            <div className = 'container'>
+            {shipInfo.map((info, i ) => (
+                <div key = {i}> 
+                    <div className = 'info'> {info} </div>
+                </div>
+            ))}
+        </div>
+            <Link className = 'back' to= '/'>Go Back</Link>
+        </div>
     )
 }
 

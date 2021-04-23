@@ -7,7 +7,9 @@ const Ships = (props) => {
         <h1>Starships</h1>
         <div className = 'container'>
             {props.StarShips.map(ship => (
-                <Link to = {`/ship/${ship.uid}`} key = {ship.uid}>{ship.name}</Link>
+                <div key = {ship.uid} className = 'ship'>
+                    <Link to = {`/ship/${ship.uid}`}>{ship.name}</Link>
+                </div>
             ))}
         </div>
        
