@@ -33,7 +33,9 @@ const Starship = (props) => {
                 <li>Consumables- {oneStarship.consumables}</li>
             </ul>
 
-            <Link to = {`/`}>Back to Starship List</Link>
+            <div className = 'homeLink'>
+                <Link to = {`/`}>Back to Starship List</Link>
+            </div>
 
         </div>
     )

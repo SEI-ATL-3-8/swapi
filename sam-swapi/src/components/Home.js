@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Home = (props) => {
 
     const starshipList = props.allStarships.map(starship => (
-        <li>
+        <li className = 'starship-list' >
             <Link to = {`/starships/${starship.uid}`}>{starship.name}</Link>
         </li>
     ))
