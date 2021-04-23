@@ -5,7 +5,6 @@ import './App.css';
 import ShipImages from './data/ShipImages'
 import AllShipArea from './components/pages/AllShipArea'
 import SingleShipArea from './components/pages/SingleShipArea'
-import SearchBar from './components/partials/SearchBar'
 import LoadMsg from './components/partials/LoadMsg'
 
 
@@ -13,10 +12,8 @@ function App() {
 
   const [starships, setStarships] = useState([])
   const [images, setImages] = useState(ShipImages)
-  const [searched, setSearched] = useState('')
 
   const url = 'https://www.swapi.tech/api/starships/'
-
 
   const mergeArray = (arr1, arr2) => {
     return arr1.map((item, i) => {
@@ -50,16 +47,15 @@ function App() {
 
         { starships.length > 0 && 
           <header>
-            <h1>Star Wars Spaceship Compendium</h1>
+            <h1>Star Wars Spaceships!</h1>
           </header>
         }
-        { starships.length > 0 && <SearchBar setSearched={setSearched} searched={searched}/> }
         { starships.length > 0 && <Route exact path='/' render={ () => <AllShipArea starships={starships} /> } /> }
 
         <Route path='/:id' render={(routingProps) => {
           const ship = starships.find(ship => ship.uid.toString() === routingProps.match.params.id)
           routingProps = {...routingProps, ...ship}
-          return <SingleShipArea {...routingProps} images={images} />
+          return <SingleShipArea routingProps={routingProps} />
         }} />
          
 

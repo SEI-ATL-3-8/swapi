@@ -1,7 +1,8 @@
-const SingleShipImage = () => {
+const SingleShipImage = (props) => {
     return (
-        <div>
-
+        <div className="ship-main-box">
+            <img className="ship-main-img" src={`${props.image}`} alt={props.name} />
+            <span className="ship-main-name">{props.name}</span>
         </div>
     )
 }

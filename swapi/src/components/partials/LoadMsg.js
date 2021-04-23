@@ -1,6 +1,6 @@
 const LoadMsg = () => {
     return (
-        <h1>Finishing a Kessel Run...</h1>
+        <h1>12 parsecs later...</h1>
     )
 }
 

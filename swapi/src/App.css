@@ -11,20 +11,101 @@
   justify-content: center;
   width: 1000px;
   flex-wrap: wrap;
-  border: 1px solid black;
+
 }
 
 .ship-item-box {
   width: 200px;
   height: 100px;
-  border: 1px solid green;
-  padding: 10px 10px;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 12px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgb(50, 50, 50);
 }
 
 .ship-item-box:hover{
   transform: scale(1.03, 1.03)
+}
+
+.ship-item-name {
+  font-size: 0.9em;
+  width: 200px;
+  height: 20px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.ship-thumbnail {
+  object-fit: cover;
+  width: 200px;
+  height: 80px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.singleShipArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ship-main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 5px rgb(50, 50, 50);
+  border: 1px solid white;
+  height: 260px;
+  width: 500px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.ship-main-img {
+  object-fit: cover;
+  object-position: 50% 30%;
+  width: 500px;
+  height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+}
+
+.ship-main-name {
+  font-size: 1.4em;
+  width: 500px;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+}
+
+.ship-main-box-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 1px 1px 5px rgb(50, 50, 50);
+  border: 1px solid black;
+  height: 160px;
+  width: 490px;
+  border-radius: 15px;
+  margin: 10px;
+  padding-left: 10px;
+  background-color: rgb(50, 50, 50);
+}
+
+.ship-main-text {
+  font-size: 0.8em;
+  margin: 8px;
+  color: white;
 }
