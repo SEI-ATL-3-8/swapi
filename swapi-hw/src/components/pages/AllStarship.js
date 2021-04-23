@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
 
-const AllStarships = () => {
+const AllStarships = (props) => {
+    let ships = props.ships.map(ship => (
+        <li>
+            <Link to={`/ships/${ship.uid}`}>{ship.name}</Link>
+        </li>
+    ))
+
     return(
         <div>
-            this is all starship
+            <ul>
+                {ships}
+            </ul>
         </div>
     )
 }
