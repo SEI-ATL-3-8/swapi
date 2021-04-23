@@ -1,23 +1,73 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css';
+import ShipImages from './data/ShipImages'
+import AllShipArea from './components/pages/AllShipArea'
+import SingleShipArea from './components/pages/SingleShipArea'
+import SearchBar from './components/partials/SearchBar'
+import LoadMsg from './components/partials/LoadMsg'
+
 
 function App() {
+
+  const [starships, setStarships] = useState([])
+  const [images, setImages] = useState(ShipImages)
+  const [searched, setSearched] = useState('')
+
+  const url = 'https://www.swapi.tech/api/starships/'
+
+
+  const mergeArray = (arr1, arr2) => {
+    return arr1.map((item, i) => {
+      if ( item.uid === arr2[i].uid ) {
+        return Object.assign({},item,arr2[i])
+      }
+    })
+  }
+
+
+  const getAllStarships = () => {
+    axios.get(`${url}`).then((response) => {
+      
+      const array = response.data.results
+      const merged = mergeArray(array, images)
+
+      setStarships(merged)
+ 
+    })
+  }
+
+  useEffect(getAllStarships, [])
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="swapi-app">
+        { starships.length === 0 && <LoadMsg /> }
+
+        { starships.length > 0 && 
+          <header>
+            <h1>Star Wars Spaceship Compendium</h1>
+          </header>
+        }
+        { starships.length > 0 && <SearchBar setSearched={setSearched} searched={searched}/> }
+        { starships.length > 0 && <Route exact path='/' render={ () => <AllShipArea starships={starships} /> } /> }
+
+        <Route path='/:id' render={(routingProps) => {
+          const ship = starships.find(ship => ship.uid.toString() === routingProps.match.params.id)
+          routingProps = {...routingProps, ...ship}
+          return <SingleShipArea {...routingProps} images={images} />
+        }} />
+         
+
+
+        
+
+
+
     </div>
   );
 }
