@@ -1,0 +1,31 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: black;
+
+  height: 100vh;
+}
+
+.ship {
+  font-size: 20pt;
+  color: yellow;
+  text-decoration:
+}
+
+.label{
+  font-size: 22pt;
+  display: flex;
+  color: white;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 20px 0 20px 0;
+  align-items: center;
+}
+
+.detail{
+  font-size: 22pt;
+  margin: 0 10px 0 20px;
+  color: yellow;
+}
