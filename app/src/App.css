@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  background-color: rgb(28, 28, 28);
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ul span {
+  margin: 5px;
+}
+
+ul span a {
+  color: yellow;
+  text-shadow: -1px -1px rgba(164, 164, 164, 0.599);
+}
+
+ul span a:active {
+  color: white;
+
+}
