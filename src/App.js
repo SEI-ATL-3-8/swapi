@@ -19,17 +19,26 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
-          {allStarships.map(starship => {
-            return (
-              <li key={starship.uid}><Link to={`/ships/${starship.uid}`}>{starship.name}</Link></li>
-            )
-          })}
-        </ul>
+        <Route exact path="/" render={() => {
+          return (
+            <div>
+              {allStarships.length === 0 ?
+                <p>Loading...</p> :
+                (
+                  <ul>
+                    {allStarships.map(starship => {
+                      return (
+                        <li key={starship.uid}><Link to={`/ships/${starship.uid}`}>{starship.name}</Link></li>
+                      )
+                    })}
+                  </ul>
+                )
+              }
+            </div>
+          )
+        }} />
+        <Route path="/ships/:id" render={(props) => <StarshipPage id={props.match.params.id} />} />
       </div>
-
-      <Route path="/ships/:id" render={(props) => <StarshipPage data={props} />}>
-      </Route>
     </Router>
   );
 }
