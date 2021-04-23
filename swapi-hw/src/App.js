@@ -6,13 +6,15 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './components/pages/Home'
 import AllStarships from './components/pages/AllStarship'
-
+import Starship from './components/pages/Starship'
+import shipDetails from './data/ship-details'
 
 function App() {
   const [AllShips, setAllShips] = useState([])
+  const [oneShip, setOneShip] = useState({})
 
   const fetchAllShips = () => {
-    axios.get('https://www.swapi.tech/api/starships/').then((response)=>{
+    axios.get(`https://www.swapi.tech/api/starships/`).then((response)=>{
       // console.log(response);
       setAllShips(response.data.results)
     })
@@ -20,6 +22,7 @@ function App() {
 
   useEffect(fetchAllShips, [])
 
+  
 
 
   return (
@@ -27,6 +30,16 @@ function App() {
      <Header />
      <Route exact path='/' component={Home} />
      <Route path='/ships' render={() => <AllStarships ships={AllShips} />} />
+     <Route path='/ships/:id'
+      render=
+      {(props) =>
+      {
+        console.log(props);
+        const ship = AllShips.find(ship => ship.uid.toString() === props.match.params.id)
+        props = {...props, ...ship}
+        return <Starship {...props} />
+      }}  
+    />
     </div>
   );
 }
