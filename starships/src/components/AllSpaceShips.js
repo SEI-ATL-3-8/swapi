@@ -4,9 +4,8 @@ const AllSpaceShips = (props) => {
         <div>
             {props.allSpaceShips.map((spaceShip) => {
                 return (
-                <div key = {spaceShip.uid}>
-                    <Link to={`/ships/${spaceShip.uid}`}>{spaceShip.name}</Link>
-                    {/* <h2>{spaceShip.name}</h2> */}
+                <div key = {spaceShip.uid} className = "every-ship">
+                    <Link to={`/ships/${spaceShip.uid}`}><h1>{spaceShip.name}</h1></Link>
                 </div>
                 )
             })}
