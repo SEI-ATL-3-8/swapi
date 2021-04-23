@@ -31,13 +31,9 @@ function App() {
       <Header />
       <Route exact path="/" component={Home}/>
       <Route path="/ships" render={() => <Ships allShips={allShips} />} />
-      <Route path="/ships/:uid" 
-        render={(props) =>{
-          const ship = allShips.find(ship => ship.uid.toString() === props.match.params.id)
-          props = {...props, ...ship}
-          return <Ship {...props} />} 
-        } 
-        />
+      <Route path="/ships/:id">
+          <Ship />
+      </Route>
     </div>
   );
 }
