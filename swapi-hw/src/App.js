@@ -11,8 +11,8 @@ import shipDetails from './data/ship-details'
 
 function App() {
   const [AllShips, setAllShips] = useState([])
-  const [oneShip, setOneShip] = useState({})
-
+  const [shipDetail, setShipDetail] = useState([])
+  
   const fetchAllShips = () => {
     axios.get(`https://www.swapi.tech/api/starships/`).then((response)=>{
       // console.log(response);
@@ -23,6 +23,10 @@ function App() {
   useEffect(fetchAllShips, [])
 
   
+const idNum = AllShips.map( data => {
+  return data.uid
+})
+console.log(idNum);
 
 
   return (
@@ -34,10 +38,11 @@ function App() {
       render=
       {(props) =>
       {
-        console.log(props);
+        // console.log(props);
         const ship = AllShips.find(ship => ship.uid.toString() === props.match.params.id)
         props = {...props, ...ship}
-        return <Starship {...props} />
+        // console.log(ship)
+        return <Starship {...props}/>
       }}  
     />
     </div>
